@@ -1,6 +1,6 @@
 services:
   zabbix-server:
-    image: zabbix/zabbix-server-mysql:alpine-6.2-latest
+    image: zabbix/zabbix-server-mysql:alpine-6.4-latest
     ports:
       - "10051:10051"
     volumes:
@@ -126,7 +126,7 @@ services:
 
 
   zabbix-web-nginx-mysql:
-    image: zabbix/zabbix-web-nginx-mysql:alpine-6.2-latest
+    image: zabbix/zabbix-web-nginx-mysql:alpine-6.4-latest
     ports:
       - "80:8080"
       - "443:8443"
@@ -181,7 +181,7 @@ services:
 
 
   zabbix-agent:
-    image: zabbix/zabbix-agent:alpine-6.2-latest
+    image: zabbix/zabbix-agent:alpine-6.4-latest
     ports:
       - "10050:10050"
     volumes:
@@ -313,6 +313,7 @@ services:
     image: mysql:8.0-oracle
     command:
       - mysqld
+      - --skip-log-bin
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_bin
       - --skip-character-set-client-handshake
